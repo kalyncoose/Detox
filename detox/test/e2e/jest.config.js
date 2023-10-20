@@ -15,6 +15,9 @@ module.exports = async () => {
   /** @type {import('jest-allure2-reporter').ReporterOptions} */
   const jestAllure2ReporterOptions = {
     overwrite: !process.env.CI,
+    attachments: {
+      fileHandler: 'copy',
+    },
     testCase: {
       labels: {
         package: ({ filePath }) => filePath.slice(1).join('/'),

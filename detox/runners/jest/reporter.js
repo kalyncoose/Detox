@@ -1,5 +1,7 @@
 /** @typedef {import('@jest/reporters').Reporter} Reporter */
 
+const { JestMetadataReporter } = require('jest-metadata/reporter');
+
 const {
   DetoxIPCReporter,
   DetoxReporterDispatcher,
@@ -11,6 +13,7 @@ const {
 class DetoxReporter extends DetoxReporterDispatcher {
   constructor(globalConfig) {
     super(globalConfig, {
+      JestMetadataReporter,
       DetoxSummaryReporter,
       DetoxVerboseReporter,
       DetoxIPCReporter,
